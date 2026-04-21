@@ -293,14 +293,13 @@
     //  PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW
     //  Must end with /exec
     // =========================================================
-    const API_URL = 'https://script.google.com/macros/s/AKfycbyvh54u5Ft179XJWstGiSQNLvxRCcaz4nkUrRMc57EimP1BbVGjsHLMTK39AestaZij/exec';
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyZCzvAt0CF5nj6S2rOib1U2K-0LH2UCTorntdB9A2ID7wjmuQ60fyx-dIPay1IEkEc/exec';
 
-    // =========================================================
     const PR = { pQR: 34.90, pFPX: 33.90, ar: 34.90 };
     const CACHE_KEY = 'pc_cache';
     let _data = [];
 
-    // Number input focus → 0
+    // Number input focus -> 0
     document.addEventListener('focusin', function(e) {
         if (e.target.classList && e.target.classList.contains('num-in')) {
             e.target.value = '0';
@@ -347,10 +346,14 @@
     }
 
     // =============================================
-    // UTILITY
+    // UTILITY — date is always YYYY-MM-DD string
     // =============================================
     const todayStr = () => new Date().toISOString().split('T')[0];
-    const fmtDate = s => { const d = new Date(s + 'T00:00:00'); return d.toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' }); };
+    const fmtDate = s => {
+        const p = s.split('-');
+        const d = new Date(+p[0], +p[1] - 1, +p[2]);
+        return d.toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' });
+    };
     const fmtRM = n => 'RM' + n.toFixed(2);
     const monKey = s => s.substring(0, 7);
     const monLabel = k => { const [y, m] = k.split('-'); return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m - 1] + ' ' + y; };
@@ -413,13 +416,11 @@
         document.getElementById('sidebar').classList.remove('open');
         document.getElementById('sbOverlay').classList.remove('show');
         window.scrollTo(0,0);
-
         if (v === 'entry') {
             document.getElementById('addForm').reset();
             document.getElementById('aDate').value = todayStr();
             updPreview(); checkExist();
         }
-
         renderView(v);
     }
 
@@ -490,10 +491,8 @@
         const adsP=Math.max(0,parseFloat(document.getElementById('aAdsP').value)||0);
         const adsA=Math.max(0,parseFloat(document.getElementById('aAdsA').value)||0);
         if(pQR+pFPX+ar===0&&adsP+adsA===0) return toast('Enter at least one value','wrn');
-
         const idx=_data.findIndex(x=>x.date===date);
         const entry={id:idx>=0?_data[idx].id:Date.now().toString(),date,pQR,pFPX,ar,adsP:Math.round(adsP*100)/100,adsA:Math.round(adsA*100)/100};
-
         const btn=document.getElementById('addBtn');
         btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Saving...';
         try {
@@ -632,9 +631,14 @@
 
     function renderChart(ents,mk){
         const[y,m]=mk.split('-'),dim=new Date(+y,+m,0).getDate();
-        const map={};ents.forEach(e=>map[+e.date.split('-')[2]]=e);
+        const map={};ents.forEach(e=>{map[+e.date.split('-')[2]]=e;});
         const labels=[],revD=[],adsD=[],profD=[];
-        for(let d=1;d<=dim;d++){labels.push(d);const e=map[d];if(e){const r=tRev(e);revD.push(r);adsD.push(tAds(e));profD.push(r-tAds(e));}else{revD.push(0);adsD.push(0);profD.push(0);}}
+        for(let d=1;d<=dim;d++){
+            labels.push(d);
+            const e=map[d];
+            if(e){const r=tRev(e);revD.push(r);adsD.push(tAds(e));profD.push(r-tAds(e));}
+            else{revD.push(0);adsD.push(0);profD.push(0);}
+        }
         if(chart)chart.destroy();
         const ctx=document.getElementById('pChart').getContext('2d');
         chart=new Chart(ctx,{type:'bar',data:{labels,datasets:[
