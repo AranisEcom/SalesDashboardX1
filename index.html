@@ -354,18 +354,9 @@
     document.addEventListener('focusin', function(e) {
         if (e.target.classList && e.target.classList.contains('num-in')) {
             e.target.value = '0';
-            // Select all text so next keystroke replaces it
-            setTimeout(() => e.target.select(), 0);
+            setTimeout(function() { e.target.select(); }, 0);
         }
     });
-
-    // Also on focus event via delegation (backup for some browsers)
-    document.addEventListener('focus', function(e) {
-        if (e.target.classList && e.target.classList.contains('num-in')) {
-            e.target.value = '0';
-            setTimeout(() => e.target.select(), 0);
-        }
-    }, true);
 
     // =============================================
     // DATA LAYER
@@ -518,7 +509,7 @@
     }
 
     // =============================================
-    // NAVIGATION
+    // NAVIGATION — no showPicker, just set date
     // =============================================
     function go(v) {
         ['dash', 'entry', 'rec', 'summ'].forEach(x => document.getElementById('v-' + x).style.display = x === v ? 'block' : 'none');
@@ -530,11 +521,8 @@
         if (v === 'rec')  renderRec();
         if (v === 'summ') renderSumm();
         if (v === 'entry') {
-            const dateInput = document.getElementById('aDate');
-            dateInput.value = todayStr();
+            document.getElementById('aDate').value = todayStr();
             updPreview(); checkExist();
-            // Try to open calendar natively
-            try { dateInput.showPicker(); } catch(err) {}
         }
         window.scrollTo(0, 0);
     }
