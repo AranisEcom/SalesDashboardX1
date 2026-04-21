@@ -26,51 +26,41 @@
         ::-webkit-scrollbar{width:4px;height:4px}
         ::-webkit-scrollbar-track{background:transparent}
         ::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:4px}
-
         .sidebar{width:240px;height:100vh;height:100dvh;position:fixed;left:0;top:0;z-index:40;background:var(--bgC);border-right:1px solid var(--bdr);display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.4,0,.2,1)}
         .nav-item{display:flex;align-items:center;gap:10px;padding:11px 16px;margin:2px 8px;border-radius:9px;color:var(--txM);cursor:pointer;font-size:13px;font-weight:500;transition:all .18s;text-decoration:none;user-select:none;-webkit-user-select:none}
         .nav-item:hover{background:rgba(255,255,255,.04);color:var(--tx)}
         .nav-item.active{background:var(--grnD);color:var(--grn)}
         .nav-item i{width:18px;text-align:center;font-size:13px}
-
         .main{margin-left:240px;min-height:100vh;min-height:100dvh;padding:24px 28px 40px;position:relative;z-index:1}
-
         .card{background:var(--bgC);border:1px solid var(--bdr);border-radius:14px;padding:20px;transition:border-color .25s}
         .card:hover{border-color:var(--bdrH)}
-
         .fi{width:100%;background:var(--bgI);border:1px solid var(--bdr);border-radius:9px;padding:11px 14px;color:var(--tx);font-family:inherit;font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s;min-height:46px}
         .fi:focus{border-color:var(--grn);box-shadow:0 0 0 3px var(--grnD)}
         .fi::placeholder{color:var(--txM);opacity:.5}
         select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%236b82a6' d='M5 7L0 2h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
-
         .btn-p{background:var(--grn);color:#000;font-weight:700;padding:12px 22px;border-radius:9px;border:none;cursor:pointer;font-family:inherit;font-size:14px;display:inline-flex;align-items:center;gap:7px;transition:all .18s;min-height:46px;justify-content:center}
         .btn-p:hover{filter:brightness(1.12);transform:translateY(-1px)}
         .btn-p:active{transform:translateY(0)}
+        .btn-p:disabled{opacity:.5;pointer-events:none}
         .btn-g{background:transparent;color:var(--txM);padding:10px 16px;border-radius:9px;border:1px solid var(--bdr);cursor:pointer;font-family:inherit;font-size:13px;transition:all .18s;min-height:42px}
         .btn-g:hover{border-color:var(--txM);color:var(--tx)}
         .btn-i{background:transparent;border:none;color:var(--txM);cursor:pointer;padding:8px 10px;border-radius:8px;transition:all .15s;font-size:13px;min-width:40px;min-height:40px;display:inline-flex;align-items:center;justify-content:center}
         .btn-i:hover{background:rgba(255,255,255,.07);color:var(--tx)}
         .btn-i.dng:hover{background:var(--redD);color:var(--red)}
-
         .dt{width:100%;border-collapse:separate;border-spacing:0}
         .dt th{background:var(--bgC);padding:10px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--txM);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:5;white-space:nowrap}
         .dt td{padding:10px 12px;font-size:13px;border-bottom:1px solid var(--bdr);background:var(--bg);white-space:nowrap}
         .dt tr:hover td{background:rgba(255,255,255,.015)}
         .dt .tot td{background:var(--bgC);font-weight:700;border-top:2px solid var(--grn);border-bottom:none}
-
         .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(5px);z-index:50;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .22s}
         .modal-bg.show{opacity:1;pointer-events:auto}
         .modal-box{background:var(--bgC);border:1px solid var(--bdr);border-radius:16px 16px 0 0;padding:24px;width:100%;max-width:500px;max-height:88vh;overflow-y:auto;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
         .modal-bg.show .modal-box{transform:translateY(0)}
-
         .toast-wrap{position:fixed;top:12px;left:12px;right:12px;z-index:60;display:flex;flex-direction:column;gap:6px;align-items:center;pointer-events:none}
         .toast{background:var(--bgC);border:1px solid var(--bdr);border-radius:10px;padding:11px 16px;font-size:13px;display:flex;align-items:center;gap:8px;box-shadow:0 8px 32px rgba(0,0,0,.5);pointer-events:auto;animation:tIn .28s ease,tOut .28s ease 2.6s forwards;max-width:340px;width:100%}
-        .toast.ok{border-left:3px solid var(--grn)}
-        .toast.err{border-left:3px solid var(--red)}
-        .toast.wrn{border-left:3px solid var(--wrn)}
+        .toast.ok{border-left:3px solid var(--grn)}.toast.err{border-left:3px solid var(--red)}.toast.wrn{border-left:3px solid var(--wrn)}
         @keyframes tIn{from{transform:translateY(-20px);opacity:0}to{transform:translateY(0);opacity:1}}
         @keyframes tOut{to{opacity:0;transform:translateY(-10px)}}
-
         .prof-pos{color:var(--grn)}.prof-neg{color:var(--red)}
         .badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:700}
         .badge-g{background:var(--grnD);color:var(--grn)}.badge-r{background:var(--redD);color:var(--red)}.badge-w{background:var(--wrnD);color:var(--wrn)}
@@ -79,16 +69,17 @@
         .glow{position:fixed;border-radius:50%;filter:blur(130px);opacity:.05;pointer-events:none;z-index:0}
         @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
         .anim-in{animation:fadeUp .3s ease forwards}
-
         .mob-hdr{display:none;position:fixed;top:0;left:0;right:0;height:52px;background:var(--bgC);border-bottom:1px solid var(--bdr);z-index:35;align-items:center;padding:0 12px;justify-content:space-between}
         .sb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:39;opacity:0;pointer-events:none;transition:opacity .3s}
         .sb-overlay.show{opacity:1;pointer-events:auto}
-
         .prod-section{padding:14px;background:var(--bg);border-radius:11px;border:1px solid var(--bdr)}
         .prod-label{display:flex;align-items:center;gap:7px;margin-bottom:11px;font-weight:600;font-size:14px}
         .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
         .sub-label{font-size:12px;color:var(--txM);margin-bottom:4px;display:block}
-
+        .loader-overlay{position:fixed;inset:0;z-index:55;background:rgba(11,17,32,.6);display:none;align-items:center;justify-content:center;pointer-events:none}
+        .loader-overlay.show{display:flex}
+        .loader-spin{width:36px;height:36px;border:3px solid var(--bdr);border-top-color:var(--grn);border-radius:50%;animation:spin .7s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
         @media(max-width:768px){
             .sidebar{transform:translateX(-100%);width:260px}
             .sidebar.open{transform:translateX(0)}
@@ -105,6 +96,7 @@
 
     <div class="toast-wrap" id="toastWrap"></div>
     <div class="sb-overlay" id="sbOverlay" onclick="toggleSB()"></div>
+    <div class="loader-overlay" id="loader"><div class="loader-spin"></div></div>
 
     <!-- EDIT MODAL -->
     <div class="modal-bg" id="editMod">
@@ -116,42 +108,24 @@
             <form id="editForm" onsubmit="saveEdit(event)">
                 <input type="hidden" id="eId">
                 <div style="display:grid;gap:14px;">
-                    <div>
-                        <label class="sub-label">Date</label>
-                        <input type="date" id="eDate" class="fi" required>
-                    </div>
+                    <div><label class="sub-label">Date</label><input type="date" id="eDate" class="fi" required></div>
                     <div class="prod-section">
                         <div class="prod-label"><div class="dot" style="background:var(--blu)"></div>Prostream</div>
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
-                            <div>
-                                <label class="sub-label">QR — <span style="color:var(--grn)">RM34.90</span></label>
-                                <input type="number" id="ePQR" class="fi num-in" min="0" value="0">
-                            </div>
-                            <div>
-                                <label class="sub-label">FPX — <span style="color:var(--grn)">RM33.90</span></label>
-                                <input type="number" id="ePFPX" class="fi num-in" min="0" value="0">
-                            </div>
+                            <div><label class="sub-label">QR — <span style="color:var(--grn)">RM34.90</span></label><input type="number" id="ePQR" class="fi num-in" min="0" value="0"></div>
+                            <div><label class="sub-label">FPX — <span style="color:var(--grn)">RM33.90</span></label><input type="number" id="ePFPX" class="fi num-in" min="0" value="0"></div>
                         </div>
-                        <div>
-                            <label class="sub-label">Prostream Ads Cost (RM)</label>
-                            <input type="number" id="eAdsP" class="fi num-in" min="0" step="0.01" value="0">
-                        </div>
+                        <div><label class="sub-label">Prostream Ads Cost (RM)</label><input type="number" id="eAdsP" class="fi num-in" min="0" step="0.01" value="0"></div>
                     </div>
                     <div class="prod-section">
                         <div class="prod-label"><div class="dot" style="background:var(--wrn)"></div>Aranis</div>
-                        <div style="margin-bottom:8px;">
-                            <label class="sub-label">Quantity — <span style="color:var(--grn)">RM34.90</span></label>
-                            <input type="number" id="eAr" class="fi num-in" min="0" value="0">
-                        </div>
-                        <div>
-                            <label class="sub-label">Aranis Ads Cost (RM)</label>
-                            <input type="number" id="eAdsA" class="fi num-in" min="0" step="0.01" value="0">
-                        </div>
+                        <div style="margin-bottom:8px;"><label class="sub-label">Quantity — <span style="color:var(--grn)">RM34.90</span></label><input type="number" id="eAr" class="fi num-in" min="0" value="0"></div>
+                        <div><label class="sub-label">Aranis Ads Cost (RM)</label><input type="number" id="eAdsA" class="fi num-in" min="0" step="0.01" value="0"></div>
                     </div>
                 </div>
                 <div style="display:flex;gap:8px;margin-top:20px;">
                     <button type="button" class="btn-g" style="flex:1" onclick="closeMod('editMod')">Cancel</button>
-                    <button type="submit" class="btn-p" style="flex:1">Save</button>
+                    <button type="submit" class="btn-p" style="flex:1" id="editBtn">Save</button>
                 </div>
             </form>
         </div>
@@ -166,7 +140,7 @@
             <input type="hidden" id="delId">
             <div style="display:flex;gap:8px;">
                 <button class="btn-g" style="flex:1" onclick="closeMod('delMod')">Cancel</button>
-                <button class="btn-p" style="flex:1;background:var(--red);color:#fff;" onclick="confirmDel()">Delete</button>
+                <button class="btn-p" style="flex:1;background:var(--red);color:#fff;" id="delBtn" onclick="confirmDel()">Delete</button>
             </div>
         </div>
     </div>
@@ -197,9 +171,6 @@
             <div class="nav-item" data-v="rec" onclick="go('rec')"><i class="fas fa-table"></i>Records</div>
             <div class="nav-item" data-v="summ" onclick="go('summ')"><i class="fas fa-calendar-alt"></i>Monthly Summary</div>
         </nav>
-        <div style="padding:12px 16px;border-top:1px solid var(--bdr);font-size:10px;color:var(--txM);">
-            <i class="fas fa-database" style="margin-right:3px;"></i> Stored in browser
-        </div>
     </aside>
 
     <!-- MAIN -->
@@ -212,7 +183,10 @@
                     <h1 style="font-size:20px;font-weight:700;">Dashboard</h1>
                     <p style="color:var(--txM);font-size:12px;margin-top:1px;">Monthly performance overview</p>
                 </div>
-                <select id="dMon" class="fi" style="width:auto;min-width:140px;" onchange="renderDash()"></select>
+                <div style="display:flex;gap:6px;">
+                    <button class="btn-i" onclick="refresh()" title="Refresh" style="border:1px solid var(--bdr);"><i class="fas fa-sync-alt"></i></button>
+                    <select id="dMon" class="fi" style="width:auto;min-width:130px;" onchange="renderDash()"></select>
+                </div>
             </div>
             <div id="dCards" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px;"></div>
             <div id="dChartWrap" class="card" style="padding:16px;margin-bottom:18px;">
@@ -240,41 +214,20 @@
             <div class="card" style="max-width:540px;">
                 <form id="addForm" onsubmit="addEntry(event)">
                     <div style="display:grid;gap:14px;">
-                        <div>
-                            <label style="font-size:12px;font-weight:600;margin-bottom:5px;display:block;">Date</label>
-                            <input type="date" id="aDate" class="fi" required>
-                        </div>
-                        <!-- Prostream -->
+                        <div><label style="font-size:12px;font-weight:600;margin-bottom:5px;display:block;">Date</label><input type="date" id="aDate" class="fi" required></div>
                         <div class="prod-section">
                             <div class="prod-label"><div class="dot" style="background:var(--blu)"></div>Prostream</div>
                             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
-                                <div>
-                                    <label class="sub-label">QR — <span style="color:var(--grn)">RM34.90</span></label>
-                                    <input type="number" id="aPQR" class="fi num-in" min="0" value="0" inputmode="numeric" oninput="updPreview()">
-                                </div>
-                                <div>
-                                    <label class="sub-label">FPX — <span style="color:var(--grn)">RM33.90</span></label>
-                                    <input type="number" id="aPFPX" class="fi num-in" min="0" value="0" inputmode="numeric" oninput="updPreview()">
-                                </div>
+                                <div><label class="sub-label">QR — <span style="color:var(--grn)">RM34.90</span></label><input type="number" id="aPQR" class="fi num-in" min="0" value="0" inputmode="numeric" oninput="updPreview()"></div>
+                                <div><label class="sub-label">FPX — <span style="color:var(--grn)">RM33.90</span></label><input type="number" id="aPFPX" class="fi num-in" min="0" value="0" inputmode="numeric" oninput="updPreview()"></div>
                             </div>
-                            <div>
-                                <label class="sub-label">Prostream Ads Cost (RM)</label>
-                                <input type="number" id="aAdsP" class="fi num-in" min="0" step="0.01" value="0" inputmode="decimal" oninput="updPreview()">
-                            </div>
+                            <div><label class="sub-label">Prostream Ads Cost (RM)</label><input type="number" id="aAdsP" class="fi num-in" min="0" step="0.01" value="0" inputmode="decimal" oninput="updPreview()"></div>
                         </div>
-                        <!-- Aranis -->
                         <div class="prod-section">
                             <div class="prod-label"><div class="dot" style="background:var(--wrn)"></div>Aranis</div>
-                            <div style="margin-bottom:8px;">
-                                <label class="sub-label">Quantity — <span style="color:var(--grn)">RM34.90</span></label>
-                                <input type="number" id="aAr" class="fi num-in" min="0" value="0" inputmode="numeric" oninput="updPreview()">
-                            </div>
-                            <div>
-                                <label class="sub-label">Aranis Ads Cost (RM)</label>
-                                <input type="number" id="aAdsA" class="fi num-in" min="0" step="0.01" value="0" inputmode="decimal" oninput="updPreview()">
-                            </div>
+                            <div style="margin-bottom:8px;"><label class="sub-label">Quantity — <span style="color:var(--grn)">RM34.90</span></label><input type="number" id="aAr" class="fi num-in" min="0" value="0" inputmode="numeric" oninput="updPreview()"></div>
+                            <div><label class="sub-label">Aranis Ads Cost (RM)</label><input type="number" id="aAdsA" class="fi num-in" min="0" step="0.01" value="0" inputmode="decimal" oninput="updPreview()"></div>
                         </div>
-                        <!-- Preview -->
                         <div id="aPrev" style="padding:13px;background:var(--bg);border-radius:10px;border:1px solid var(--bdr);display:none;">
                             <div style="font-size:10px;color:var(--txM);margin-bottom:8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Preview</div>
                             <div style="display:grid;gap:5px;font-size:13px;">
@@ -286,15 +239,13 @@
                                 <div style="display:flex;justify-content:space-between;"><span>Aranis Ads</span><span id="pvAA" style="color:var(--red);">- RM0.00</span></div>
                                 <div style="display:flex;justify-content:space-between;"><span style="font-weight:600;">Aranis Profit</span><span id="pvAP" style="font-weight:700;">RM0.00</span></div>
                                 <div style="border-top:1px solid var(--bdr);margin:6px 0;"></div>
-                                <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;">
-                                    <span>Net Profit</span><span id="pvProf">RM0.00</span>
-                                </div>
+                                <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;"><span>Net Profit</span><span id="pvProf">RM0.00</span></div>
                             </div>
                         </div>
                         <div id="aExist" style="display:none;padding:10px 12px;background:var(--wrnD);border:1px solid rgba(245,158,11,.2);border-radius:9px;font-size:12px;color:var(--wrn);">
                             <i class="fas fa-info-circle" style="margin-right:4px;"></i>Entry for this date exists. Submit to update.
                         </div>
-                        <button type="submit" class="btn-p" style="width:100%;"><i class="fas fa-save"></i> Save Entry</button>
+                        <button type="submit" class="btn-p" style="width:100%;" id="addBtn"><i class="fas fa-save"></i> Save Entry</button>
                     </div>
                 </form>
             </div>
@@ -308,6 +259,7 @@
                     <p style="color:var(--txM);font-size:12px;margin-top:1px;">Daily breakdown</p>
                 </div>
                 <div style="display:flex;gap:6px;align-items:center;">
+                    <button class="btn-i" onclick="refresh()" title="Refresh" style="border:1px solid var(--bdr);"><i class="fas fa-sync-alt"></i></button>
                     <select id="rMon" class="fi" style="width:auto;min-width:130px;" onchange="renderRec()"></select>
                     <button class="btn-i" onclick="exportCSV()" title="Export CSV" style="border:1px solid var(--bdr);"><i class="fas fa-download"></i></button>
                 </div>
@@ -316,10 +268,7 @@
                 <div style="overflow-x:auto;max-height:60vh;overflow-y:auto;-webkit-overflow-scrolling:touch;">
                     <table class="dt" id="rTable"></table>
                 </div>
-                <div id="rEmpty" class="empty-s" style="display:none;padding:32px;">
-                    <i class="fas fa-inbox"></i>
-                    <p style="font-size:12px;">No records for this month</p>
-                </div>
+                <div id="rEmpty" class="empty-s" style="display:none;padding:32px;"><i class="fas fa-inbox"></i><p style="font-size:12px;">No records for this month</p></div>
             </div>
         </section>
 
@@ -333,24 +282,25 @@
                 <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
                     <table class="dt" id="sTable"></table>
                 </div>
-                <div id="sEmpty" class="empty-s" style="display:none;padding:32px;">
-                    <i class="fas fa-calendar-times"></i>
-                    <p style="font-size:12px;">No monthly data yet</p>
-                </div>
+                <div id="sEmpty" class="empty-s" style="display:none;padding:32px;"><i class="fas fa-calendar-times"></i><p style="font-size:12px;">No monthly data yet</p></div>
             </div>
         </section>
+
     </main>
 
     <script>
-    // =============================================
-    // PRICING
-    // =============================================
-    const PR = { pQR: 34.90, pFPX: 33.90, ar: 34.90 };
-    const KEY = 'pc_v2';
+    // =========================================================
+    //  PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW
+    //  Must end with /exec
+    // =========================================================
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyvh54u5Ft179XJWstGiSQNLvxRCcaz4nkUrRMc57EimP1BbVGjsHLMTK39AestaZij/exec';
 
-    // =============================================
-    // NUMBER INPUT: on focus → set value to 0, select all
-    // =============================================
+    // =========================================================
+    const PR = { pQR: 34.90, pFPX: 33.90, ar: 34.90 };
+    const CACHE_KEY = 'pc_cache';
+    let _data = [];
+
+    // Number input focus → 0
     document.addEventListener('focusin', function(e) {
         if (e.target.classList && e.target.classList.contains('num-in')) {
             e.target.value = '0';
@@ -359,91 +309,42 @@
     });
 
     // =============================================
-    // DATA LAYER
+    // API
     // =============================================
-    function load() {
+    function showLoader(on) { document.getElementById('loader').classList.toggle('show', on); }
+
+    async function apiGet(action) {
+        const res = await fetch(API_URL + '?action=' + action);
+        const text = await res.text();
+        try { return JSON.parse(text); }
+        catch { throw new Error('Invalid response'); }
+    }
+
+    async function apiPost(action, data) {
+        const res = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ action: action, ...data })
+        });
+        const text = await res.text();
+        try { return JSON.parse(text); }
+        catch { throw new Error('Invalid response'); }
+    }
+
+    async function loadData() {
+        showLoader(true);
         try {
-            let d = JSON.parse(localStorage.getItem(KEY));
-            if (!Array.isArray(d)) return [];
-            let changed = false;
-            d.forEach(e => {
-                if (e.ads !== undefined && e.adsP === undefined) {
-                    e.adsP = e.ads; e.adsA = 0; delete e.ads; changed = true;
-                }
-            });
-            if (changed) localStorage.setItem(KEY, JSON.stringify(d));
-            return d;
-        } catch { return []; }
+            const entries = await apiGet('read');
+            if (Array.isArray(entries)) {
+                _data = entries;
+                localStorage.setItem(CACHE_KEY, JSON.stringify(entries));
+            }
+        } catch {
+            try { _data = JSON.parse(localStorage.getItem(CACHE_KEY)) || []; } catch { _data = []; }
+        }
+        showLoader(false);
+        return _data;
     }
-    function save(d) { localStorage.setItem(KEY, JSON.stringify(d)); }
-
-    function addEntry(e) {
-        e.preventDefault();
-        const date = document.getElementById('aDate').value;
-        if (!date) return toast('Select a date', 'err');
-        const pQR  = Math.max(0, parseInt(document.getElementById('aPQR').value)  || 0);
-        const pFPX = Math.max(0, parseInt(document.getElementById('aPFPX').value) || 0);
-        const ar   = Math.max(0, parseInt(document.getElementById('aAr').value)   || 0);
-        const adsP = Math.max(0, parseFloat(document.getElementById('aAdsP').value) || 0);
-        const adsA = Math.max(0, parseFloat(document.getElementById('aAdsA').value) || 0);
-
-        if (pQR + pFPX + ar === 0 && adsP + adsA === 0) return toast('Enter at least one value', 'wrn');
-
-        const all = load();
-        const idx = all.findIndex(x => x.date === date);
-        const entry = { id: idx >= 0 ? all[idx].id : Date.now().toString(), date, pQR, pFPX, ar, adsP: Math.round(adsP * 100) / 100, adsA: Math.round(adsA * 100) / 100 };
-
-        if (idx >= 0) { all[idx] = entry; toast('Updated ' + fmtDate(date), 'ok'); }
-        else { all.push(entry); toast('Added ' + fmtDate(date), 'ok'); }
-
-        save(all);
-        document.getElementById('addForm').reset();
-        document.getElementById('aDate').value = todayStr();
-        updPreview(); checkExist();
-    }
-
-    function openEdit(id) {
-        const e = load().find(x => x.id === id);
-        if (!e) return;
-        document.getElementById('eId').value   = id;
-        document.getElementById('eDate').value = e.date;
-        document.getElementById('ePQR').value  = e.pQR;
-        document.getElementById('ePFPX').value = e.pFPX;
-        document.getElementById('eAr').value   = e.ar;
-        document.getElementById('eAdsP').value = e.adsP || 0;
-        document.getElementById('eAdsA').value = e.adsA || 0;
-        document.getElementById('editMod').classList.add('show');
-    }
-
-    function saveEdit(ev) {
-        ev.preventDefault();
-        const id = document.getElementById('eId').value;
-        const all = load();
-        const i = all.findIndex(x => x.id === id);
-        if (i < 0) return;
-        all[i].date = document.getElementById('eDate').value;
-        all[i].pQR  = Math.max(0, parseInt(document.getElementById('ePQR').value)  || 0);
-        all[i].pFPX = Math.max(0, parseInt(document.getElementById('ePFPX').value) || 0);
-        all[i].ar   = Math.max(0, parseInt(document.getElementById('eAr').value)   || 0);
-        all[i].adsP = Math.max(0, parseFloat(document.getElementById('eAdsP').value) || 0);
-        all[i].adsA = Math.max(0, parseFloat(document.getElementById('eAdsA').value) || 0);
-        save(all);
-        closeMod('editMod');
-        toast('Entry updated', 'ok');
-        refresh();
-    }
-
-    function reqDel(id) { document.getElementById('delId').value = id; document.getElementById('delMod').classList.add('show'); }
-    function confirmDel() {
-        let all = load();
-        all = all.filter(x => x.id !== document.getElementById('delId').value);
-        save(all);
-        closeMod('delMod');
-        toast('Entry deleted', 'ok');
-        refresh();
-    }
-
-    function closeMod(id) { document.getElementById(id).classList.remove('show'); }
 
     // =============================================
     // UTILITY
@@ -456,7 +357,7 @@
 
     function uniqueMonths() {
         const cur = new Date().getFullYear() + '-' + String(new Date().getMonth() + 1).padStart(2, '0');
-        return [...new Set([cur, ...load().map(e => monKey(e.date))])].sort().reverse();
+        return [...new Set([cur, ..._data.map(e => monKey(e.date))])].sort().reverse();
     }
 
     function fillMonSels() {
@@ -464,12 +365,12 @@
         ['dMon', 'rMon'].forEach(id => {
             const el = document.getElementById(id);
             const v = el.value;
-            el.innerHTML = ms.map(m => `<option value="${m}">${monLabel(m)}</option>`).join('');
+            el.innerHTML = ms.map(m => '<option value="' + m + '">' + monLabel(m) + '</option>').join('');
             if (v && ms.includes(v)) el.value = v;
         });
     }
 
-    function monEntries(k) { return load().filter(e => monKey(e.date) === k).sort((a, b) => a.date.localeCompare(b.date)); }
+    function monEntries(k) { return _data.filter(e => monKey(e.date) === k).sort((a, b) => a.date.localeCompare(b.date)); }
 
     const pRev = e => (e.pQR * PR.pQR) + (e.pFPX * PR.pFPX);
     const pProf = e => pRev(e) - (e.adsP || 0);
@@ -480,51 +381,66 @@
     const tProf = e => pProf(e) + aProf(e);
 
     function monStats(entries) {
-        let tPQR = 0, tPFPX = 0, tAr = 0, totRev = 0, totAdsP = 0, totAdsA = 0;
-        entries.forEach(e => { tPQR += e.pQR; tPFPX += e.pFPX; tAr += e.ar; totRev += tRev(e); totAdsP += (e.adsP || 0); totAdsA += (e.adsA || 0); });
-        const sold = tPQR + tPFPX + tAr;
-        const totAds = totAdsP + totAdsA;
-        const profit = totRev - totAds;
-        const margin = totRev > 0 ? (profit / totRev * 100) : 0;
-        const days = entries.length;
-        const psRev = (tPQR * PR.pQR) + (tPFPX * PR.pFPX);
-        const arRev = tAr * PR.ar;
-        const psProf = psRev - totAdsP;
-        const arProf = arRev - totAdsA;
-        return { tPQR, tPFPX, tAr, sold, totRev, totAdsP, totAdsA, totAds, profit, margin, days, psRev, arRev, psProf, arProf };
+        let tPQR=0,tPFPX=0,tAr=0,totRev=0,totAdsP=0,totAdsA=0;
+        entries.forEach(e=>{tPQR+=e.pQR;tPFPX+=e.pFPX;tAr+=e.ar;totRev+=tRev(e);totAdsP+=(e.adsP||0);totAdsA+=(e.adsA||0);});
+        const sold=tPQR+tPFPX+tAr,totAds=totAdsP+totAdsA,profit=totRev-totAds;
+        const margin=totRev>0?(profit/totRev*100):0,days=entries.length;
+        const psRev=(tPQR*PR.pQR)+(tPFPX*PR.pFPX),arRev=tAr*PR.ar;
+        const psProf=psRev-totAdsP,arProf=arRev-totAdsA;
+        return {tPQR,tPFPX,tAr,sold,totRev,totAdsP,totAdsA,totAds,profit,margin,days,psRev,arRev,psProf,arProf};
     }
 
     // =============================================
     // TOAST
     // =============================================
-    function toast(msg, type = 'ok') {
+    function toast(msg, type='ok') {
         const wrap = document.getElementById('toastWrap');
         const el = document.createElement('div');
         el.className = 'toast ' + type;
-        const ic = { ok: 'fa-check-circle', err: 'fa-times-circle', wrn: 'fa-exclamation-circle' };
-        const cl = { ok: 'var(--grn)', err: 'var(--red)', wrn: 'var(--wrn)' };
-        el.innerHTML = `<i class="fas ${ic[type]}" style="color:${cl[type]};flex-shrink:0;"></i><span>${msg}</span>`;
+        const ic = {ok:'fa-check-circle',err:'fa-times-circle',wrn:'fa-exclamation-circle'};
+        const cl = {ok:'var(--grn)',err:'var(--red)',wrn:'var(--wrn)'};
+        el.innerHTML = '<i class="fas '+ic[type]+'" style="color:'+cl[type]+';flex-shrink:0;"></i><span>'+msg+'</span>';
         wrap.appendChild(el);
         setTimeout(() => el.remove(), 3000);
     }
 
     // =============================================
-    // NAVIGATION — no showPicker, just set date
+    // NAVIGATION
     // =============================================
     function go(v) {
-        ['dash', 'entry', 'rec', 'summ'].forEach(x => document.getElementById('v-' + x).style.display = x === v ? 'block' : 'none');
-        document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.v === v));
+        ['dash','entry','rec','summ'].forEach(x => document.getElementById('v-'+x).style.display = x===v?'block':'none');
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.v===v));
         document.getElementById('sidebar').classList.remove('open');
         document.getElementById('sbOverlay').classList.remove('show');
+        window.scrollTo(0,0);
+
+        if (v === 'entry') {
+            document.getElementById('addForm').reset();
+            document.getElementById('aDate').value = todayStr();
+            updPreview(); checkExist();
+        }
+
+        renderView(v);
+    }
+
+    async function renderView(v) {
+        await loadData();
         fillMonSels();
         if (v === 'dash') renderDash();
         if (v === 'rec')  renderRec();
         if (v === 'summ') renderSumm();
-        if (v === 'entry') {
-            document.getElementById('aDate').value = todayStr();
-            updPreview(); checkExist();
+    }
+
+    async function refresh() {
+        await loadData();
+        fillMonSels();
+        const active = document.querySelector('.nav-item.active');
+        if (active) {
+            const v = active.dataset.v;
+            if (v === 'dash') renderDash();
+            if (v === 'rec')  renderRec();
+            if (v === 'summ') renderSumm();
         }
-        window.scrollTo(0, 0);
     }
 
     function toggleSB() {
@@ -532,321 +448,270 @@
         document.getElementById('sbOverlay').classList.toggle('show');
     }
 
-    function refresh() { renderDash(); renderRec(); renderSumm(); }
-
     // =============================================
     // ENTRY PREVIEW
     // =============================================
     function updPreview() {
-        const qr = Math.max(0, parseInt(document.getElementById('aPQR').value) || 0);
-        const fpx = Math.max(0, parseInt(document.getElementById('aPFPX').value) || 0);
-        const ar = Math.max(0, parseInt(document.getElementById('aAr').value) || 0);
-        const adsP = Math.max(0, parseFloat(document.getElementById('aAdsP').value) || 0);
-        const adsA = Math.max(0, parseFloat(document.getElementById('aAdsA').value) || 0);
+        const qr=Math.max(0,parseInt(document.getElementById('aPQR').value)||0);
+        const fpx=Math.max(0,parseInt(document.getElementById('aPFPX').value)||0);
+        const ar=Math.max(0,parseInt(document.getElementById('aAr').value)||0);
+        const adsP=Math.max(0,parseFloat(document.getElementById('aAdsP').value)||0);
+        const adsA=Math.max(0,parseFloat(document.getElementById('aAdsA').value)||0);
+        const pr=(qr*PR.pQR)+(fpx*PR.pFPX),pp=pr-adsP;
+        const arR=ar*PR.ar,ap=arR-adsA,np=pp+ap;
+        const show=qr+fpx+ar>0||adsP+adsA>0;
+        document.getElementById('aPrev').style.display=show?'block':'none';
+        document.getElementById('pvPR').textContent=fmtRM(pr);
+        document.getElementById('pvPA').textContent='- '+fmtRM(adsP);
+        setPC('pvPP',pp);document.getElementById('pvPP').textContent=fmtRM(pp);
+        document.getElementById('pvAR').textContent=fmtRM(arR);
+        document.getElementById('pvAA').textContent='- '+fmtRM(adsA);
+        setPC('pvAP',ap);document.getElementById('pvAP').textContent=fmtRM(ap);
+        setPC('pvProf',np);document.getElementById('pvProf').textContent=fmtRM(np);
+    }
+    function setPC(id,val){document.getElementById(id).style.color=val>=0?'var(--grn)':'var(--red)';}
 
-        const pr = (qr * PR.pQR) + (fpx * PR.pFPX);
-        const pp = pr - adsP;
-        const arR = ar * PR.ar;
-        const ap = arR - adsA;
-        const np = pp + ap;
+    function checkExist(){
+        const date=document.getElementById('aDate').value;
+        document.getElementById('aExist').style.display=_data.some(e=>e.date===date)?'block':'none';
+    }
+    document.getElementById('aDate').addEventListener('change',checkExist);
 
-        const show = qr + fpx + ar > 0 || adsP + adsA > 0;
-        document.getElementById('aPrev').style.display = show ? 'block' : 'none';
+    // =============================================
+    // ADD ENTRY
+    // =============================================
+    async function addEntry(e) {
+        e.preventDefault();
+        const date=document.getElementById('aDate').value;
+        if(!date) return toast('Select a date','err');
+        const pQR=Math.max(0,parseInt(document.getElementById('aPQR').value)||0);
+        const pFPX=Math.max(0,parseInt(document.getElementById('aPFPX').value)||0);
+        const ar=Math.max(0,parseInt(document.getElementById('aAr').value)||0);
+        const adsP=Math.max(0,parseFloat(document.getElementById('aAdsP').value)||0);
+        const adsA=Math.max(0,parseFloat(document.getElementById('aAdsA').value)||0);
+        if(pQR+pFPX+ar===0&&adsP+adsA===0) return toast('Enter at least one value','wrn');
 
-        document.getElementById('pvPR').textContent = fmtRM(pr);
-        document.getElementById('pvPA').textContent = '- ' + fmtRM(adsP);
-        setPC('pvPP', pp); document.getElementById('pvPP').textContent = fmtRM(pp);
+        const idx=_data.findIndex(x=>x.date===date);
+        const entry={id:idx>=0?_data[idx].id:Date.now().toString(),date,pQR,pFPX,ar,adsP:Math.round(adsP*100)/100,adsA:Math.round(adsA*100)/100};
 
-        document.getElementById('pvAR').textContent = fmtRM(arR);
-        document.getElementById('pvAA').textContent = '- ' + fmtRM(adsA);
-        setPC('pvAP', ap); document.getElementById('pvAP').textContent = fmtRM(ap);
-
-        setPC('pvProf', np); document.getElementById('pvProf').textContent = fmtRM(np);
+        const btn=document.getElementById('addBtn');
+        btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Saving...';
+        try {
+            const res=await apiPost('create',entry);
+            if(res.success){
+                if(idx>=0) _data[idx]=entry; else _data.push(entry);
+                localStorage.setItem(CACHE_KEY,JSON.stringify(_data));
+                toast((idx>=0?'Updated ':'Added ')+fmtDate(date),'ok');
+                document.getElementById('addForm').reset();
+                document.getElementById('aDate').value=todayStr();
+                updPreview();checkExist();
+            } else { throw new Error(res.error||'Save failed'); }
+        } catch(err) { toast('Failed: '+err.message,'err'); }
+        btn.disabled=false;btn.innerHTML='<i class="fas fa-save"></i> Save Entry';
     }
 
-    function setPC(id, val) { document.getElementById(id).style.color = val >= 0 ? 'var(--grn)' : 'var(--red)'; }
-
-    function checkExist() {
-        const date = document.getElementById('aDate').value;
-        document.getElementById('aExist').style.display = load().some(e => e.date === date) ? 'block' : 'none';
+    // =============================================
+    // EDIT
+    // =============================================
+    function openEdit(id) {
+        const e=_data.find(x=>x.id===id);
+        if(!e) return;
+        document.getElementById('eId').value=id;
+        document.getElementById('eDate').value=e.date;
+        document.getElementById('ePQR').value=e.pQR;
+        document.getElementById('ePFPX').value=e.pFPX;
+        document.getElementById('eAr').value=e.ar;
+        document.getElementById('eAdsP').value=e.adsP||0;
+        document.getElementById('eAdsA').value=e.adsA||0;
+        document.getElementById('editMod').classList.add('show');
     }
-    document.getElementById('aDate').addEventListener('change', checkExist);
+
+    async function saveEdit(ev) {
+        ev.preventDefault();
+        const id=document.getElementById('eId').value;
+        const entry={
+            id,date:document.getElementById('eDate').value,
+            pQR:Math.max(0,parseInt(document.getElementById('ePQR').value)||0),
+            pFPX:Math.max(0,parseInt(document.getElementById('ePFPX').value)||0),
+            ar:Math.max(0,parseInt(document.getElementById('eAr').value)||0),
+            adsP:Math.max(0,parseFloat(document.getElementById('eAdsP').value)||0),
+            adsA:Math.max(0,parseFloat(document.getElementById('eAdsA').value)||0)
+        };
+        const btn=document.getElementById('editBtn');
+        btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Saving...';
+        try {
+            const res=await apiPost('create',entry);
+            if(res.success){
+                const i=_data.findIndex(x=>x.id===id);
+                if(i>=0) _data[i]=entry;
+                localStorage.setItem(CACHE_KEY,JSON.stringify(_data));
+                closeMod('editMod');toast('Entry updated','ok');
+                refresh();
+            } else { throw new Error(res.error||'Update failed'); }
+        } catch(err) { toast('Failed: '+err.message,'err'); }
+        btn.disabled=false;btn.innerHTML='Save';
+    }
+
+    // =============================================
+    // DELETE
+    // =============================================
+    function reqDel(id){document.getElementById('delId').value=id;document.getElementById('delMod').classList.add('show');}
+
+    async function confirmDel() {
+        const id=document.getElementById('delId').value;
+        const btn=document.getElementById('delBtn');
+        btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i>...';
+        try {
+            const res=await apiPost('delete',{id});
+            if(res.success){
+                _data=_data.filter(x=>x.id!==id);
+                localStorage.setItem(CACHE_KEY,JSON.stringify(_data));
+                closeMod('delMod');toast('Entry deleted','ok');
+                refresh();
+            } else { throw new Error(res.error||'Delete failed'); }
+        } catch(err) { toast('Failed: '+err.message,'err'); }
+        btn.disabled=false;btn.innerHTML='Delete';
+    }
+
+    function closeMod(id){document.getElementById(id).classList.remove('show');}
 
     // =============================================
     // DASHBOARD
     // =============================================
-    let chart = null;
+    let chart=null;
 
     function renderDash() {
-        const mk = document.getElementById('dMon').value;
-        const ents = monEntries(mk);
-        const s = monStats(ents);
-        const cards = document.getElementById('dCards');
-        const empty = document.getElementById('dEmpty');
-        const chartW = document.getElementById('dChartWrap');
-        const breakW = document.getElementById('dBreak');
+        const mk=document.getElementById('dMon').value;
+        const ents=monEntries(mk),s=monStats(ents);
+        const cards=document.getElementById('dCards'),empty=document.getElementById('dEmpty'),
+              chartW=document.getElementById('dChartWrap'),breakW=document.getElementById('dBreak');
+        if(ents.length===0){cards.style.display='none';chartW.style.display='none';breakW.style.display='none';empty.style.display='block';return;}
+        cards.style.display='grid';chartW.style.display='block';breakW.style.display='grid';empty.style.display='none';
 
-        if (ents.length === 0) {
-            cards.style.display = 'none'; chartW.style.display = 'none'; breakW.style.display = 'none'; empty.style.display = 'block'; return;
-        }
-        cards.style.display = 'grid'; chartW.style.display = 'block'; breakW.style.display = 'grid'; empty.style.display = 'none';
-
-        const items = [
-            { lbl: 'Total Revenue', val: fmtRM(s.totRev), ic: 'fa-coins', c: 'var(--cyn)', bg: 'var(--cynD)', sub: s.days + ' days' },
-            { lbl: 'Total Profit', val: fmtRM(s.profit), ic: 'fa-chart-line', c: s.profit >= 0 ? 'var(--grn)' : 'var(--red)', bg: s.profit >= 0 ? 'var(--grnD)' : 'var(--redD)', sub: 'Avg ' + fmtRM(s.profit / s.days) + '/day' },
-            { lbl: 'Total Ads Cost', val: fmtRM(s.totAds), ic: 'fa-bullhorn', c: 'var(--red)', bg: 'var(--redD)', sub: 'PS ' + fmtRM(s.totAdsP) + ' / Ar ' + fmtRM(s.totAdsA) },
-            { lbl: 'Products Sold', val: s.sold, ic: 'fa-box', c: 'var(--blu)', bg: 'var(--bluD)', sub: 'PS ' + (s.tPQR + s.tPFPX) + ' / Ar ' + s.tAr },
+        const items=[
+            {lbl:'Total Revenue',val:fmtRM(s.totRev),ic:'fa-coins',c:'var(--cyn)',bg:'var(--cynD)',sub:s.days+' days'},
+            {lbl:'Total Profit',val:fmtRM(s.profit),ic:'fa-chart-line',c:s.profit>=0?'var(--grn)':'var(--red)',bg:s.profit>=0?'var(--grnD)':'var(--redD)',sub:'Avg '+fmtRM(s.profit/s.days)+'/day'},
+            {lbl:'Total Ads Cost',val:fmtRM(s.totAds),ic:'fa-bullhorn',c:'var(--red)',bg:'var(--redD)',sub:'PS '+fmtRM(s.totAdsP)+' / Ar '+fmtRM(s.totAdsA)},
+            {lbl:'Products Sold',val:s.sold,ic:'fa-box',c:'var(--blu)',bg:'var(--bluD)',sub:'PS '+(s.tPQR+s.tPFPX)+' / Ar '+s.tAr}
         ];
-
-        cards.innerHTML = items.map((c, i) => `
-            <div class="card anim-in" style="animation-delay:${i * .06}s;padding:16px;">
+        cards.innerHTML=items.map((c,i)=>`
+            <div class="card anim-in" style="animation-delay:${i*.06}s;padding:16px;">
                 <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
                     <span style="font-size:11px;color:var(--txM);font-weight:500;">${c.lbl}</span>
-                    <div style="width:28px;height:28px;border-radius:7px;background:${c.bg};display:flex;align-items:center;justify-content:center;">
-                        <i class="fas ${c.ic}" style="font-size:11px;color:${c.c};"></i>
-                    </div>
+                    <div style="width:28px;height:28px;border-radius:7px;background:${c.bg};display:flex;align-items:center;justify-content:center;"><i class="fas ${c.ic}" style="font-size:11px;color:${c.c};"></i></div>
                 </div>
                 <div style="font-size:19px;font-weight:700;color:${c.c};letter-spacing:-.4px;line-height:1.2;">${c.val}</div>
                 <div style="font-size:10px;color:var(--txM);margin-top:4px;">${c.sub}</div>
-            </div>
-        `).join('');
+            </div>`).join('');
 
-        renderChart(ents, mk);
+        renderChart(ents,mk);
 
-        const psPct = s.totRev > 0 ? (s.psRev / s.totRev * 100).toFixed(1) : '0.0';
-        const arPct = s.totRev > 0 ? (s.arRev / s.totRev * 100).toFixed(1) : '0.0';
-
-        document.getElementById('dBreak').innerHTML = `
+        const psPct=s.totRev>0?(s.psRev/s.totRev*100).toFixed(1):'0.0';
+        const arPct=s.totRev>0?(s.arRev/s.totRev*100).toFixed(1):'0.0';
+        document.getElementById('dBreak').innerHTML=`
             <div class="card anim-in" style="animation-delay:.25s;">
-                <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;">
-                    <div class="dot" style="background:var(--blu)"></div>
-                    <span style="font-weight:600;font-size:14px;">Prostream</span>
-                    <span class="badge badge-g" style="margin-left:auto;">${psPct}% rev</span>
-                </div>
+                <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;"><div class="dot" style="background:var(--blu)"></div><span style="font-weight:600;font-size:14px;">Prostream</span><span class="badge badge-g" style="margin-left:auto;">${psPct}% rev</span></div>
                 <div style="display:grid;gap:7px;font-size:13px;">
-                    <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">QR (${s.tPQR} units)</span><span>${fmtRM(s.tPQR * PR.pQR)}</span></div>
-                    <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">FPX (${s.tPFPX} units)</span><span>${fmtRM(s.tPFPX * PR.pFPX)}</span></div>
+                    <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">QR (${s.tPQR} units)</span><span>${fmtRM(s.tPQR*PR.pQR)}</span></div>
+                    <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">FPX (${s.tPFPX} units)</span><span>${fmtRM(s.tPFPX*PR.pFPX)}</span></div>
                     <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">Revenue</span><span style="color:var(--blu);font-weight:600;">${fmtRM(s.psRev)}</span></div>
                     <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">Ads Cost</span><span style="color:var(--red);">- ${fmtRM(s.totAdsP)}</span></div>
-                    <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--bdr);font-weight:700;font-size:15px;">
-                        <span>Profit</span>
-                        <span style="color:${s.psProf >= 0 ? 'var(--grn)' : 'var(--red)'}">${fmtRM(s.psProf)}</span>
-                    </div>
+                    <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--bdr);font-weight:700;font-size:15px;"><span>Profit</span><span style="color:${s.psProf>=0?'var(--grn)':'var(--red)'}">${fmtRM(s.psProf)}</span></div>
                 </div>
             </div>
             <div class="card anim-in" style="animation-delay:.32s;">
-                <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;">
-                    <div class="dot" style="background:var(--wrn)"></div>
-                    <span style="font-weight:600;font-size:14px;">Aranis</span>
-                    <span class="badge badge-w" style="margin-left:auto;">${arPct}% rev</span>
-                </div>
+                <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;"><div class="dot" style="background:var(--wrn)"></div><span style="font-weight:600;font-size:14px;">Aranis</span><span class="badge badge-w" style="margin-left:auto;">${arPct}% rev</span></div>
                 <div style="display:grid;gap:7px;font-size:13px;">
                     <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">Sold (${s.tAr} units)</span><span>${fmtRM(s.arRev)}</span></div>
                     <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">Revenue</span><span style="color:var(--wrn);font-weight:600;">${fmtRM(s.arRev)}</span></div>
                     <div style="display:flex;justify-content:space-between;"><span style="color:var(--txM);">Ads Cost</span><span style="color:var(--red);">- ${fmtRM(s.totAdsA)}</span></div>
-                    <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--bdr);font-weight:700;font-size:15px;">
-                        <span>Profit</span>
-                        <span style="color:${s.arProf >= 0 ? 'var(--grn)' : 'var(--red)'}">${fmtRM(s.arProf)}</span>
-                    </div>
+                    <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--bdr);font-weight:700;font-size:15px;"><span>Profit</span><span style="color:${s.arProf>=0?'var(--grn)':'var(--red)'}">${fmtRM(s.arProf)}</span></div>
                 </div>
-            </div>
-        `;
+            </div>`;
     }
 
-    function renderChart(ents, mk) {
-        const [y, m] = mk.split('-');
-        const dim = new Date(+y, +m, 0).getDate();
-        const map = {};
-        ents.forEach(e => map[+e.date.split('-')[2]] = e);
-
-        const labels = [], revD = [], adsD = [], profD = [];
-        for (let d = 1; d <= dim; d++) {
-            labels.push(d);
-            const e = map[d];
-            if (e) { const r = tRev(e); revD.push(r); adsD.push(tAds(e)); profD.push(r - tAds(e)); }
-            else { revD.push(0); adsD.push(0); profD.push(0); }
-        }
-
-        if (chart) chart.destroy();
-        const ctx = document.getElementById('pChart').getContext('2d');
-        chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels,
-                datasets: [
-                    { label: 'Revenue', data: revD, backgroundColor: 'rgba(6,182,212,.5)', borderColor: 'rgba(6,182,212,.7)', borderWidth: 1, borderRadius: 3, order: 2 },
-                    { label: 'Ads Cost', data: adsD, backgroundColor: 'rgba(239,68,68,.4)', borderColor: 'rgba(239,68,68,.6)', borderWidth: 1, borderRadius: 3, order: 3 },
-                    { label: 'Profit', data: profD, type: 'line', borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,.06)', borderWidth: 2, pointRadius: 1.5, pointBackgroundColor: '#f59e0b', fill: true, tension: .35, order: 1 }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                interaction: { mode: 'index', intersect: false },
-                plugins: {
-                    legend: { position: 'top', align: 'end', labels: { color: '#6b82a6', font: { family: 'Space Grotesk', size: 10 }, boxWidth: 8, padding: 10 } },
-                    tooltip: { backgroundColor: '#1a2740', titleColor: '#e2e8f0', bodyColor: '#8899aa', borderColor: '#2a3f65', borderWidth: 1, cornerRadius: 8, padding: 10, titleFont: { family: 'Space Grotesk', weight: '600' }, bodyFont: { family: 'Space Grotesk' }, callbacks: { label: c => c.dataset.label + ': RM' + c.parsed.y.toFixed(2) } }
-                },
-                scales: {
-                    x: { grid: { color: 'rgba(255,255,255,.03)' }, ticks: { color: '#6b82a6', font: { family: 'Space Grotesk', size: 9 }, maxRotation: 0 } },
-                    y: { grid: { color: 'rgba(255,255,255,.03)' }, ticks: { color: '#6b82a6', font: { family: 'Space Grotesk', size: 9 }, callback: v => 'RM' + v } }
-                }
-            }
-        });
+    function renderChart(ents,mk){
+        const[y,m]=mk.split('-'),dim=new Date(+y,+m,0).getDate();
+        const map={};ents.forEach(e=>map[+e.date.split('-')[2]]=e);
+        const labels=[],revD=[],adsD=[],profD=[];
+        for(let d=1;d<=dim;d++){labels.push(d);const e=map[d];if(e){const r=tRev(e);revD.push(r);adsD.push(tAds(e));profD.push(r-tAds(e));}else{revD.push(0);adsD.push(0);profD.push(0);}}
+        if(chart)chart.destroy();
+        const ctx=document.getElementById('pChart').getContext('2d');
+        chart=new Chart(ctx,{type:'bar',data:{labels,datasets:[
+            {label:'Revenue',data:revD,backgroundColor:'rgba(6,182,212,.5)',borderColor:'rgba(6,182,212,.7)',borderWidth:1,borderRadius:3,order:2},
+            {label:'Ads Cost',data:adsD,backgroundColor:'rgba(239,68,68,.4)',borderColor:'rgba(239,68,68,.6)',borderWidth:1,borderRadius:3,order:3},
+            {label:'Profit',data:profD,type:'line',borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,.06)',borderWidth:2,pointRadius:1.5,pointBackgroundColor:'#f59e0b',fill:true,tension:.35,order:1}
+        ]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{
+            legend:{position:'top',align:'end',labels:{color:'#6b82a6',font:{family:'Space Grotesk',size:10},boxWidth:8,padding:10}},
+            tooltip:{backgroundColor:'#1a2740',titleColor:'#e2e8f0',bodyColor:'#8899aa',borderColor:'#2a3f65',borderWidth:1,cornerRadius:8,padding:10,titleFont:{family:'Space Grotesk',weight:'600'},bodyFont:{family:'Space Grotesk'},callbacks:{label:c=>c.dataset.label+': RM'+c.parsed.y.toFixed(2)}}
+        },scales:{x:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#6b82a6',font:{family:'Space Grotesk',size:9},maxRotation:0}},y:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#6b82a6',font:{family:'Space Grotesk',size:9},callback:v=>'RM'+v}}}}});
     }
 
     // =============================================
     // RECORDS
     // =============================================
-    function renderRec() {
-        const mk = document.getElementById('rMon').value;
-        const ents = monEntries(mk);
-        const s = monStats(ents);
-        const tbl = document.getElementById('rTable');
-        const emp = document.getElementById('rEmpty');
-
-        if (ents.length === 0) { tbl.innerHTML = ''; emp.style.display = 'block'; return; }
-        emp.style.display = 'none';
-
-        let h = `<thead><tr>
-            <th>Date</th>
-            <th style="text-align:right;">PS QR</th>
-            <th style="text-align:right;">PS FPX</th>
-            <th style="text-align:right;">Ar</th>
-            <th style="text-align:right;">Rev</th>
-            <th style="text-align:right;">Ads PS</th>
-            <th style="text-align:right;">Ads Ar</th>
-            <th style="text-align:right;">Profit</th>
-            <th style="text-align:center;min-width:80px;">Act</th>
-        </tr></thead><tbody>`;
-
-        ents.forEach(e => {
-            const r = tRev(e), p = tProf(e), pc = p >= 0 ? 'prof-pos' : 'prof-neg';
-            h += `<tr>
-                <td style="font-weight:500;">${fmtDate(e.date)}</td>
-                <td style="text-align:right;">${e.pQR}</td>
-                <td style="text-align:right;">${e.pFPX}</td>
-                <td style="text-align:right;">${e.ar}</td>
-                <td style="text-align:right;color:var(--cyn);font-weight:500;">${fmtRM(r)}</td>
-                <td style="text-align:right;color:var(--red);">${fmtRM(e.adsP || 0)}</td>
-                <td style="text-align:right;color:var(--red);">${fmtRM(e.adsA || 0)}</td>
-                <td style="text-align:right;font-weight:600;" class="${pc}">${fmtRM(p)}</td>
-                <td style="text-align:center;white-space:nowrap;">
-                    <button class="btn-i" onclick="openEdit('${e.id}')" title="Edit"><i class="fas fa-pen"></i></button>
-                    <button class="btn-i dng" onclick="reqDel('${e.id}')" title="Delete"><i class="fas fa-trash"></i></button>
-                </td>
-            </tr>`;
+    function renderRec(){
+        const mk=document.getElementById('rMon').value;
+        const ents=monEntries(mk),s=monStats(ents);
+        const tbl=document.getElementById('rTable'),emp=document.getElementById('rEmpty');
+        if(ents.length===0){tbl.innerHTML='';emp.style.display='block';return;}
+        emp.style.display='none';
+        let h='<thead><tr><th>Date</th><th style="text-align:right;">PS QR</th><th style="text-align:right;">PS FPX</th><th style="text-align:right;">Ar</th><th style="text-align:right;">Rev</th><th style="text-align:right;">Ads PS</th><th style="text-align:right;">Ads Ar</th><th style="text-align:right;">Profit</th><th style="text-align:center;min-width:80px;">Act</th></tr></thead><tbody>';
+        ents.forEach(e=>{const r=tRev(e),p=tProf(e),pc=p>=0?'prof-pos':'prof-neg';
+            h+='<tr><td style="font-weight:500;">'+fmtDate(e.date)+'</td><td style="text-align:right;">'+e.pQR+'</td><td style="text-align:right;">'+e.pFPX+'</td><td style="text-align:right;">'+e.ar+'</td><td style="text-align:right;color:var(--cyn);font-weight:500;">'+fmtRM(r)+'</td><td style="text-align:right;color:var(--red);">'+fmtRM(e.adsP||0)+'</td><td style="text-align:right;color:var(--red);">'+fmtRM(e.adsA||0)+'</td><td style="text-align:right;font-weight:600;" class="'+pc+'">'+fmtRM(p)+'</td><td style="text-align:center;white-space:nowrap;"><button class="btn-i" onclick="openEdit(\''+e.id+'\')" title="Edit"><i class="fas fa-pen"></i></button><button class="btn-i dng" onclick="reqDel(\''+e.id+'\')" title="Delete"><i class="fas fa-trash"></i></button></td></tr>';
         });
-
-        const tpc = s.profit >= 0 ? 'prof-pos' : 'prof-neg';
-        h += `<tr class="tot">
-            <td>TOTAL</td>
-            <td style="text-align:right;">${s.tPQR}</td>
-            <td style="text-align:right;">${s.tPFPX}</td>
-            <td style="text-align:right;">${s.tAr}</td>
-            <td style="text-align:right;color:var(--cyn);">${fmtRM(s.totRev)}</td>
-            <td style="text-align:right;color:var(--red);">${fmtRM(s.totAdsP)}</td>
-            <td style="text-align:right;color:var(--red);">${fmtRM(s.totAdsA)}</td>
-            <td style="text-align:right;" class="${tpc}">${fmtRM(s.profit)}</td>
-            <td></td>
-        </tr></tbody>`;
-        tbl.innerHTML = h;
+        const tpc=s.profit>=0?'prof-pos':'prof-neg';
+        h+='<tr class="tot"><td>TOTAL</td><td style="text-align:right;">'+s.tPQR+'</td><td style="text-align:right;">'+s.tPFPX+'</td><td style="text-align:right;">'+s.tAr+'</td><td style="text-align:right;color:var(--cyn);">'+fmtRM(s.totRev)+'</td><td style="text-align:right;color:var(--red);">'+fmtRM(s.totAdsP)+'</td><td style="text-align:right;color:var(--red);">'+fmtRM(s.totAdsA)+'</td><td style="text-align:right;" class="'+tpc+'">'+fmtRM(s.profit)+'</td><td></td></tr></tbody>';
+        tbl.innerHTML=h;
     }
 
     // =============================================
     // CSV EXPORT
     // =============================================
-    function exportCSV() {
-        const mk = document.getElementById('rMon').value;
-        const ents = monEntries(mk);
-        if (ents.length === 0) return toast('No data to export', 'wrn');
-        let csv = 'Date,PS_QR,PS_QR_Rev,PS_FPX,PS_FPX_Rev,Aranis,Aranis_Rev,Total_Rev,PS_Ads,Aranis_Ads,Total_Ads,Profit\n';
-        ents.forEach(e => {
-            csv += `${e.date},${e.pQR},${(e.pQR*PR.pQR).toFixed(2)},${e.pFPX},${(e.pFPX*PR.pFPX).toFixed(2)},${e.ar},${(e.ar*PR.ar).toFixed(2)},${tRev(e).toFixed(2)},${(e.adsP||0).toFixed(2)},${(e.adsA||0).toFixed(2)},${tAds(e).toFixed(2)},${tProf(e).toFixed(2)}\n`;
-        });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
-        a.download = `profitcalc_${mk}.csv`;
-        a.click();
-        toast('CSV exported', 'ok');
+    function exportCSV(){
+        const mk=document.getElementById('rMon').value;
+        const ents=monEntries(mk);
+        if(ents.length===0) return toast('No data to export','wrn');
+        let csv='Date,PS_QR,PS_QR_Rev,PS_FPX,PS_FPX_Rev,Aranis,Aranis_Rev,Total_Rev,PS_Ads,Aranis_Ads,Total_Ads,Profit\n';
+        ents.forEach(e=>{csv+=e.date+','+e.pQR+','+(e.pQR*PR.pQR).toFixed(2)+','+e.pFPX+','+(e.pFPX*PR.pFPX).toFixed(2)+','+e.ar+','+(e.ar*PR.ar).toFixed(2)+','+tRev(e).toFixed(2)+','+(e.adsP||0).toFixed(2)+','+(e.adsA||0).toFixed(2)+','+tAds(e).toFixed(2)+','+tProf(e).toFixed(2)+'\n';});
+        const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='profitcalc_'+mk+'.csv';a.click();
+        toast('CSV exported','ok');
     }
 
     // =============================================
     // MONTHLY SUMMARY
     // =============================================
-    function renderSumm() {
-        const all = load();
-        const mMap = {};
-        all.forEach(e => { const k = monKey(e.date); if (!mMap[k]) mMap[k] = []; mMap[k].push(e); });
-
-        const tbl = document.getElementById('sTable');
-        const emp = document.getElementById('sEmpty');
-        const mks = Object.keys(mMap).sort().reverse();
-
-        if (mks.length === 0) { tbl.innerHTML = ''; emp.style.display = 'block'; return; }
-        emp.style.display = 'none';
-
-        let gRev = 0, gAds = 0, gProfit = 0, gSold = 0, gPS = 0, gAr = 0, gAdsP = 0, gAdsA = 0;
-
-        let h = `<thead><tr>
-            <th>Month</th>
-            <th style="text-align:right;">PS</th>
-            <th style="text-align:right;">Ar</th>
-            <th style="text-align:right;">Sold</th>
-            <th style="text-align:right;">Revenue</th>
-            <th style="text-align:right;">Ads PS</th>
-            <th style="text-align:right;">Ads Ar</th>
-            <th style="text-align:right;">Profit</th>
-            <th style="text-align:right;">Margin</th>
-        </tr></thead><tbody>`;
-
-        mks.forEach(mk => {
-            const s = monStats(mMap[mk]);
-            const pc = s.profit >= 0 ? 'prof-pos' : 'prof-neg';
-            const mc = s.margin >= 0 ? 'badge-g' : 'badge-r';
-            h += `<tr>
-                <td style="font-weight:600;">${monLabel(mk)}</td>
-                <td style="text-align:right;">${s.tPQR + s.tPFPX}</td>
-                <td style="text-align:right;">${s.tAr}</td>
-                <td style="text-align:right;font-weight:500;">${s.sold}</td>
-                <td style="text-align:right;color:var(--cyn);">${fmtRM(s.totRev)}</td>
-                <td style="text-align:right;color:var(--red);">${fmtRM(s.totAdsP)}</td>
-                <td style="text-align:right;color:var(--red);">${fmtRM(s.totAdsA)}</td>
-                <td style="text-align:right;font-weight:600;" class="${pc}">${fmtRM(s.profit)}</td>
-                <td style="text-align:right;"><span class="badge ${mc}">${s.margin.toFixed(1)}%</span></td>
-            </tr>`;
-            gRev += s.totRev; gAds += s.totAds; gProfit += s.profit; gSold += s.sold; gPS += s.tPQR + s.tPFPX; gAr += s.tAr; gAdsP += s.totAdsP; gAdsA += s.totAdsA;
+    function renderSumm(){
+        const mMap={};_data.forEach(e=>{const k=monKey(e.date);if(!mMap[k])mMap[k]=[];mMap[k].push(e);});
+        const tbl=document.getElementById('sTable'),emp=document.getElementById('sEmpty');
+        const mks=Object.keys(mMap).sort().reverse();
+        if(mks.length===0){tbl.innerHTML='';emp.style.display='block';return;}
+        emp.style.display='none';
+        let gRev=0,gAds=0,gProfit=0,gSold=0,gPS=0,gAr=0,gAdsP=0,gAdsA=0;
+        let h='<thead><tr><th>Month</th><th style="text-align:right;">PS</th><th style="text-align:right;">Ar</th><th style="text-align:right;">Sold</th><th style="text-align:right;">Revenue</th><th style="text-align:right;">Ads PS</th><th style="text-align:right;">Ads Ar</th><th style="text-align:right;">Profit</th><th style="text-align:right;">Margin</th></tr></thead><tbody>';
+        mks.forEach(mk=>{const s=monStats(mMap[mk]);const pc=s.profit>=0?'prof-pos':'prof-neg';const mc=s.margin>=0?'badge-g':'badge-r';
+            h+='<tr><td style="font-weight:600;">'+monLabel(mk)+'</td><td style="text-align:right;">'+(s.tPQR+s.tPFPX)+'</td><td style="text-align:right;">'+s.tAr+'</td><td style="text-align:right;font-weight:500;">'+s.sold+'</td><td style="text-align:right;color:var(--cyn);">'+fmtRM(s.totRev)+'</td><td style="text-align:right;color:var(--red);">'+fmtRM(s.totAdsP)+'</td><td style="text-align:right;color:var(--red);">'+fmtRM(s.totAdsA)+'</td><td style="text-align:right;font-weight:600;" class="'+pc+'">'+fmtRM(s.profit)+'</td><td style="text-align:right;"><span class="badge '+mc+'">'+s.margin.toFixed(1)+'%</span></td></tr>';
+            gRev+=s.totRev;gAds+=s.totAds;gProfit+=s.profit;gSold+=s.sold;gPS+=s.tPQR+s.tPFPX;gAr+=s.tAr;gAdsP+=s.totAdsP;gAdsA+=s.totAdsA;
         });
-
-        const gpc = gProfit >= 0 ? 'prof-pos' : 'prof-neg';
-        const gMargin = gRev > 0 ? (gProfit / gRev * 100).toFixed(1) : '0.0';
-        const gmc = gProfit >= 0 ? 'badge-g' : 'badge-r';
-        h += `<tr class="tot">
-            <td>ALL</td>
-            <td style="text-align:right;">${gPS}</td>
-            <td style="text-align:right;">${gAr}</td>
-            <td style="text-align:right;">${gSold}</td>
-            <td style="text-align:right;color:var(--cyn);">${fmtRM(gRev)}</td>
-            <td style="text-align:right;color:var(--red);">${fmtRM(gAdsP)}</td>
-            <td style="text-align:right;color:var(--red);">${fmtRM(gAdsA)}</td>
-            <td style="text-align:right;" class="${gpc}">${fmtRM(gProfit)}</td>
-            <td style="text-align:right;"><span class="badge ${gmc}">${gMargin}%</span></td>
-        </tr></tbody>`;
-        tbl.innerHTML = h;
+        const gpc=gProfit>=0?'prof-pos':'prof-neg',gMargin=gRev>0?(gProfit/gRev*100).toFixed(1):'0.0',gmc=gProfit>=0?'badge-g':'badge-r';
+        h+='<tr class="tot"><td>ALL</td><td style="text-align:right;">'+gPS+'</td><td style="text-align:right;">'+gAr+'</td><td style="text-align:right;">'+gSold+'</td><td style="text-align:right;color:var(--cyn);">'+fmtRM(gRev)+'</td><td style="text-align:right;color:var(--red);">'+fmtRM(gAdsP)+'</td><td style="text-align:right;color:var(--red);">'+fmtRM(gAdsA)+'</td><td style="text-align:right;" class="'+gpc+'">'+fmtRM(gProfit)+'</td><td style="text-align:right;"><span class="badge '+gmc+'">'+gMargin+'%</span></td></tr></tbody>';
+        tbl.innerHTML=h;
     }
 
     // =============================================
     // MODAL CLOSE
     // =============================================
-    ['editMod', 'delMod'].forEach(id => {
-        document.getElementById(id).addEventListener('click', function(e) { if (e.target === this) closeMod(id); });
-    });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMod('editMod'); closeMod('delMod'); } });
+    ['editMod','delMod'].forEach(id=>{document.getElementById(id).addEventListener('click',function(e){if(e.target===this)closeMod(id);});});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMod('editMod');closeMod('delMod');}});
 
     // =============================================
     // INIT
     // =============================================
-    fillMonSels();
-    renderDash();
+    (async function init() {
+        await loadData();
+        fillMonSels();
+        renderDash();
+    })();
     </script>
 </body>
 </html>
